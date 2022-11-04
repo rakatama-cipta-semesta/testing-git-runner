@@ -1,0 +1,23 @@
+{
+  "name": "testing-git-runner",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "author": "Jefri Herdi Triyanto <jefriherditriyanto@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "npx nodemon",
+    "remove:junk": "npx cross-env rm -rf dist debug.log package-lock.json yarn-error.log yarn.lock",
+    "remove:node_modules": "npx cross-env rm -rf ./node_modules",
+    "reset": "npx yarn remove:node_modules && yarn",
+    "build": "npx yarn remove:junk && npx ncc build ./index.js --no-cache --minify --transpile-only"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
+    "cross-env": "^7.0.3",
+    "yarn": "^1.22.19"
+  }
+}
