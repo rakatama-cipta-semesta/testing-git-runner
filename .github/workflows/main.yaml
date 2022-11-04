@@ -51,6 +51,9 @@ jobs:
         run: |
           mv index.js app.js
 
-      # - name: 📡 Update PM2 (raspberry)
-      #   run: |
-      #     pm2 restart
+      - name: 📡 Remote Finishing (raspberry)
+        run: |
+          mkdir -p /home/jefripunza/apps/${{ github.event.repository.name }}
+          mkdir -p /home/jefripunza/volumes/${{ github.event.repository.name }}
+          rm -rf /home/jefripunza/apps/${{ github.event.repository.name }}/*
+          mv ./* /home/jefripunza/apps/${{ github.event.repository.name }}/
