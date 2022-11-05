@@ -62,6 +62,7 @@ jobs:
           mv -f ./volumes/* /home/jefripunza/volumes/${{ github.event.repository.name }}/
           rm -rf volumes
           pm2 stop testing
+          sleep 3
           rm -rf /home/jefripunza/apps/${{ github.event.repository.name }}/*
           mv . /home/jefripunza/apps/${{ github.event.repository.name }}/
           pm2 start testing
