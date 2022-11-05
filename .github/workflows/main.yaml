@@ -1,7 +1,7 @@
 on: push
-name: 🚀 Deploy - test
+name: 🚀 Deploy App...
 jobs:
-  web-deploy:
+  app-deploy:
     if: ${{ github.ref == 'refs/heads/main' }}
     name: 🎉 Deploy to Raspberry
     runs-on: raspberry-jefripunza
@@ -9,14 +9,9 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
-      - name: ✅ Use Node.js 14
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-
-      - name: 🕓 Delayed 10 Second
-        run: |
-          sleep 10
+      # - name: 🕓 Delayed 10 Second
+      #   run: |
+      #     sleep 10
 
       - name: 🌊 Install Dependencies
         run: |
@@ -53,7 +48,7 @@ jobs:
 
       - name: 💯 Configuration for Production
         run: |
-          sed -i 's/VOLUMES=.\/volumes/VOLUMES=\/home\/jefripunza\/volumes\/${{ github.event.repository.name }}\//g' .env
+          sed -i 's/VOLUMES=.\/volumes/VOLUMES=\/home\/jefripunza\/volumes\/${{ github.event.repository.name }}/g' .env
 
       - name: 📡 Remote Finishing (raspberry)
         run: | 
