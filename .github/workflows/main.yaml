@@ -62,4 +62,4 @@ jobs:
           mv -f ./volumes/* /home/jefripunza/volumes/${{ github.event.repository.name }}/
           rm -rf volumes
           rm -rf /home/jefripunza/apps/${{ github.event.repository.name }}/*
-          mv * /home/jefripunza/apps/${{ github.event.repository.name }}/
+          mv . /home/jefripunza/apps/${{ github.event.repository.name }}/
