@@ -29,6 +29,7 @@ jobs:
 
       - name: 🚫 Remove Meta Files & Folders
         run: |
+          rm -rf .git
           rm -rf .github
           rm -rf node_modules
           rm .gitignore
@@ -58,3 +59,4 @@ jobs:
           rm -rf volumes
           rm -rf /home/jefripunza/apps/${{ github.event.repository.name }}/*
           cp -R . /home/jefripunza/apps/${{ github.event.repository.name }}
+          rm -rf *
