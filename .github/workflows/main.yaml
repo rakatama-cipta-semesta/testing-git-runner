@@ -56,7 +56,7 @@ jobs:
           sed -i 's/VOLUMES=.\/volumes/VOLUMES=\/home\/jefripunza\/volumes\/${{ github.event.repository.name }}\//g' .env
 
       - name: 📡 Remote Finishing (raspberry)
-        run: |
+        run: | 
           mkdir -p /home/jefripunza/apps/${{ github.event.repository.name }}
           mkdir -p /home/jefripunza/volumes/${{ github.event.repository.name }}
           mv -f ./volumes/* /home/jefripunza/volumes/${{ github.event.repository.name }}/
